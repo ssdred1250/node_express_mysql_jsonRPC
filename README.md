@@ -2,6 +2,8 @@
 
 Node.js와 Express, MySQL, JSON RPC 를 통한 IISS API 통신을 위한 더미 서버 구축
 
+![process](./hahaha/img/process.png)
+
 ## 1. Express 프로젝트 생성
 
 먼저, express-generator 모듈을 설치합니다.
@@ -19,8 +21,6 @@ ejs에서는 태그를 통하여 html문서를 작성하고,
 <% %> 와 <%= %>를 이용하여 서버가 전달해준 값을 사용할 수 있습니다.
 
 ![express-generator](./hahaha/img/express-generator.png)
-
-<img src="/hahaha/img/express-generator.png" width="100" height="100">
 
 ## 2. MySQL 연동
 
