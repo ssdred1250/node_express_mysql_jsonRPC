@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRep</title>
+</head>
+
+<body>
+    <h1>PRep</h1>
+    <hr>
+
+    <form action="/prep/register" method="POST">
+        <table>
+            <tr>
+                <td><input id="EOA" type="text" name="EOA" placeholder="EOA"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="name" placeholder="name"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="email" placeholder="email"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="website" placeholder="website"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="country" placeholder="country"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="city" placeholder="city"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="details" placeholder="details"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="p2pEndpoint" placeholder="p2pEndpoint"></td>
+            </tr>
+        </table>
+        <input type="submit" value="registerPRep">
+        <button type="submit" formaction="/prep/unregister?_method=DELETE">unregister</button>
+        <button type="submit" formaction="/prep/set?_method=PUT">set</button>
+    </form>
+
+    <input type='button' onclick='getPRep()' value='getPRep'/>
+    <button ><a href="/prep/getPReps">getPReps</a></button>
+
+    <script>
+        function getPRep() {
+            var _EOA = document.getElementById('EOA').value;
+            window.open("/prep/getPRep/" +_EOA);
+        }
+    </script>
+
+    <table>
+        <% for(let Prep of Preps) { %>
+            <tr>
+                <td><%= Prep.EOA %></td>
+                <td><%= Prep.name %></td>
+                <td><%= Prep.email %></td>
+                <td><%= Prep.website %></td>
+                <td><%= Prep.country %></td>
+                <td><%= Prep.city %></td>
+                <td><%= Prep.details %></td>
+                <td><%= Prep.p2pEndpoint %></td>
+            </tr>
+        <% } %>
+    </table>
+
+    
+</body>
+
+</html>

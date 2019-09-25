@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>getProposals</h1>
+<hr>
+
+<table>
+    <% for(let Proposal of Proposals) { %>
+        <tr>
+            <th scope="row">id</th>
+            <td><%= Proposal.id %></td>
+        </tr>
+        <tr>
+            <th scope="row">description</th>
+            <td><%= Proposal.description %></td>
+        </tr>
+        <tr>
+            <th scope="row">type</th>
+            <td><%= Proposal.type %></td>
+        </tr>
+        <tr>
+            <th scope="row">status</th>
+            <td><%= Proposal.status %></td>
+        </tr>
+        <tr>
+            <th scope="row">startBlockHeight</th>
+            <td><%= Proposal.startBlockHeight %></td>
+        </tr>
+        <tr>
+            <th scope="row">endBlockHeight</th>
+            <td><%= Proposal.endBlockHeight %></td>
+        </tr>
+    <% } %>
+</table>
+</body>
+</html>

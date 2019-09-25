@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>vote</h1>
+<hr>
+
+<form action="/proposal/vote/<%= id %>?_method=PUT" method="post">
+    <input type="text" name="vote" placeholder="vote">
+    <input type="submit" value="전송하기" >
+</form>
+
+</body>
+</html>

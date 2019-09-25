@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>getDelegation</h1>
+<hr>
+
+<table>
+    <tr>
+        <th scope="row">status</th>
+        <td><%= Delegation.status %></td>
+    </tr>
+    <tr>
+        <th scope="row">totalDelegated</th>
+        <td><%= Delegation.totalDelegated %></td>
+    </tr>
+    <tr>
+        <th scope="row">votingPower</th>
+        <td><%= Delegation.votingPower %></td>
+    </tr>
+
+    <% for(var i = 0; i < Delegation.delegations.length; i++) { %>
+        <tr>
+            <th scope="row">delegations[<%=i%>].EOA</th>
+            <td><%= Delegation.delegations[i].EOA %></td>
+        </tr>
+        <tr>
+            <th scope="row">delegations[<%=i%>].value</th>
+            <td><%= Delegation.delegations[i].value %></td>
+        </tr>
+        <tr>
+            <th scope="row">delegations[<%=i%>].address</th>
+            <td><%= Delegation.delegations[i].address %></td>
+        </tr>
+    <% } %>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Proposal</title>
+</head>
+
+<body>
+    <h1>Proposal</h1>
+
+    <form action="/proposal/register" method="POST" id="proposal">
+        <table>
+            <tr>
+                <td><input type="text" name="title" placeholder="title"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="description" placeholder="description"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="type" placeholder="type"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="value" placeholder="value"></td>
+            </tr>
+        </table>
+        <input type="submit" value="registerProposal">
+    </form>
+
+    <button><a href="/proposal/getProposals">getProposals</a></button>
+
+    <table>
+        <% for(let Proposal of Proposals) { %>
+        <tr>
+            <td><%= Proposal.id %></td>
+            <td><%= Proposal.title %></td>
+            <td><%= Proposal.description %></td>
+            <td><%= Proposal.type %></td>
+            <td><%= Proposal.value %></td>
+            <td><%= Proposal.vote %></td>
+            <td><button><a href="/proposal/vote/<%= Proposal.id %>">vote</a></button></td>
+            <td><button type="submit" formaction="/proposal/cancel/<%= Proposal.id %>?_method=DELETE"
+                    form="proposal">cancel</button></td>
+            <td><button><a href="/proposal/getProposal/<%= Proposal.id %>">getProposal</a></button></td>
+        </tr>
+        <% } %>
+    </table>
+
+
+</body>
+
+</html>

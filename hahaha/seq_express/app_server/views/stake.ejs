@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stake</title>
+</head>
+
+<body>
+    <h1>Stake</h1>
+
+    <form action="/stake/set" method="POST">
+        <table>
+            <tr>
+                <td><input id="EOA" type="text" name="EOA" placeholder="EOA"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="value" placeholder="value"></td>
+            </tr>
+        </table>
+        <input type="submit" value="setStake">
+    </form>
+    
+    <input type='button' onclick='getStake()' value='getStake'/>
+
+    <script>
+        function getStake() {
+            var _EOA = document.getElementById('EOA').value;
+            window.open("/stake/getStake/" + _EOA);
+        }
+    </script>
+
+    <table>
+        <% for(let Stake of Stakes) { %>
+            <tr>
+                <td><%= Stake.EOA %></td>
+                <td><%= Stake.value %></td>
+            </tr>
+        <% } %>
+    </table>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>getProposal</h1>
+<hr>
+
+<table>
+    <tbody>
+        <tr>
+            <th scope="row">proposer</th>
+            <td><%= Proposal.proposer %></td>
+        </tr>
+        <tr>
+            <th scope="row">id</th>
+            <td><%= Proposal.id %></td>
+        </tr>
+        <tr>
+            <th scope="row">status</th>
+            <td><%= Proposal.status %></td>
+        </tr>
+        <tr>
+            <th scope="row">startBlockHeight</th>
+            <td><%= Proposal.startBlockHeight %></td>
+        </tr>
+        <tr>
+            <th scope="row">endBlockHeight</th>
+            <td><%= Proposal.endBlockHeight %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_agree_address</th>
+            <td><%= Proposal.voter.agree.address %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_agree_amount</th>
+            <td><%= Proposal.voter.agree.amount %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_disagree_address</th>
+            <td><%= Proposal.voter.disagree.address %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_disagree_amount</th>
+            <td><%= Proposal.voter.disagree.amount %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_noVote_address</th>
+            <td><%= Proposal.voter.noVote.address %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_noVote_amount</th>
+            <td><%= Proposal.voter.noVote.amount %></td>
+        </tr>
+        <tr>
+            <th scope="row">contents_description</th>
+            <td><%= Proposal.contents.description %></td>
+        </tr>
+        <tr>
+            <th scope="row">contents_type</th>
+            <td><%= Proposal.contents.type %></td>
+        </tr>
+        <tr>
+            <th scope="row">contents_value_address</th>
+            <td><%= Proposal.contents.value.address %></td>
+        </tr>
+    </tbody>    
+</table>
+</body>
+
+</body>
+</html>

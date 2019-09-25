@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delegation</title>
+</head>
+
+<body>
+    <h1>Delegation</h1>
+    <hr>
+
+    <form action="/delegation/set" method="POST">
+        <tr>
+            <td><input type="text" name="EOA" placeholder="EOA"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="address" placeholder="address"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="value" placeholder="value"></td>
+        </tr>
+         <input type="submit" value="setDelegation">
+        
+    </form>
+
+    <table>
+        <% for(let Delegation of Delegations) { %>
+            <tr>
+                <td><%= Delegation.EOA %></td>
+                <td><%= Delegation.address %></td> 
+                <td><%= Delegation.value %></td>
+                <td><button ><a href="/delegation/getDelegation/<%= Delegation.EOA %>">getDelegation</a></button></td>         
+            </tr>
+         <% } %>
+    </table>
+
+    
+</body>
+
+</html>

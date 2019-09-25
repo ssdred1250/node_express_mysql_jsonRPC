@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>getPReps</h1>
+<hr>
+
+<table>
+    <tr>
+        <th scope="row">blockHeight</th>
+        <td><%= PReps.blockHeight %></td>
+    </tr>
+    <tr>
+        <th scope="row">startRanking</th>
+        <td><%= PReps.startRanking %></td>
+    </tr>
+    <tr>
+        <th scope="row">totalDelegated</th>
+        <td><%= PReps.totalDelegated %></td>
+    </tr>
+    <tr>
+        <th scope="row">totalStake</th>
+        <td><%= PReps.totalStake %></td>
+    </tr>
+
+    <% for(var i = 0; i < PReps.preps.length; i++) { %>
+        <tr>
+            <th scope="row">preps[<%=i%>].name</th>
+            <td><%= PReps.preps[i].name %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].country</th>
+            <td><%= PReps.preps[i].country %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].city</th>
+            <td><%= PReps.preps[i].city %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].grade</th>
+            <td><%= PReps.preps[i].grade %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].address</th>
+            <td><%= PReps.preps[i].address %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].irep</th>
+            <td><%= PReps.preps[i].irep %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].irepUpdateBlockHeight</th>
+            <td><%= PReps.preps[i].irepUpdateBlockHeight %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].lastGenerateBlockHeight</th>
+            <td><%= PReps.preps[i].lastGenerateBlockHeight %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].stake</th>
+            <td><%= PReps.preps[i].stake %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].delegated</th>
+            <td><%= PReps.preps[i].delegated %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].totalBlocks</th>
+            <td><%= PReps.preps[i].totalBlocks %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].validatedBlocks</th>
+            <td><%= PReps.preps[i].validatedBlocks %></td>
+        </tr>
+        <tr>
+            <th scope="row">preps[<%=i%>].name</th>
+            <td><%= PReps.preps[i].name %></td>
+        </tr>
+    <% } %>
+</table>
+</body>
+</html>
