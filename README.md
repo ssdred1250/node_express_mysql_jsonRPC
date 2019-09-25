@@ -1,26 +1,6 @@
 # IISS
 
-Node.js와 Express, MySQL, json rpc를 통한 IISS API 통신을 위한 더미 서버 구축
-
-### IISS API List
-- PRep
-  - registerPRep
-  - unregisterPRep
-  - setPRep
-  - getPRep
-  - getPReps
-- Stake
-  - setStake
-  - getStake
-- Delegation
-  - setDelegation
-  - getDelegation
-- Proposal
-  - registerProposal
-  - cancelProposal
-  - voteProposal
-  - getProposal
-  - getProposals   
+Node.js와 Express, MySQL, JSON RPC 를 통한 IISS API 통신을 위한 더미 서버 구축
 
 ## 1. Express 프로젝트 생성
 
@@ -106,6 +86,27 @@ CLI에서 더 간편하게 모델을 정의할 수 있습니다. 사용 방법�
 ```
 $ sequelize model:create --name TABLE_NAME --attribute "COLUMN_NAME:type"
 ```
+
+#### IISS API List
+- PRep
+  - registerPRep
+  - unregisterPRep
+  - setPRep
+  - getPRep
+  - getPReps
+- Stake
+  - setStake
+  - getStake
+- Delegation
+  - setDelegation
+  - getDelegation
+- Proposal
+  - registerProposal
+  - cancelProposal
+  - voteProposal
+  - getProposal
+  - getProposals   
+
 IISS API의 Prep, Stake, Delegation, Proposal을 위한 총 4개의 모델을 만들겠습니다.
 
 ```
