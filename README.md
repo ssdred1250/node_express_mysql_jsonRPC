@@ -388,9 +388,7 @@ view/proposal.ejs
         <% } %>
     </table>
 
-
 </body>
-
 </html>
 ```
 
@@ -404,7 +402,6 @@ view/voteProposal.ejs
 </head>
 <body>
 <h1>vote</h1>
-<hr>
 
 <form action="/proposal/vote/<%= id %>?_method=PUT" method="post">
     <input type="text" name="vote" placeholder="vote">
@@ -413,6 +410,7 @@ view/voteProposal.ejs
 
 </body>
 </html>
+```
 
 view/getProposal.ejs
 ```
