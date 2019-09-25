@@ -114,10 +114,11 @@ $ seqeulize model:create --name Prep --attributes "EOA:string, name:string, emai
 $ seqeulize model:create --name Proposal --attributes "id:string, title:string, description:string, type:string, value:string, vote:string"
 $ seqeulize model:create --name Stake --attributes "EOA:string, value:string"
 ```
-이제 다음과 같이 models와 migrations 폴더에 파일들이 생상됩니다.
+이제 다음과 같이 models와 migrations 폴더에 파일들이 생상됩니다.\
 ![model_create](./hahaha/img/model_create.png)
+\
 
-서버를 실행하면 정의된 모델에 의해 테이블이 생성됩니다. 
+서버를 실행하면 정의된 모델에 의해 테이블이 생성됩니다.\
 ![tables](hahaha/img/tables.png)
 
 확인 결과 4개의 테이블이 잘 생성되었습니다. 자세히 살펴보면 테이블명이 모두 복수형인데  sequelize-cli를 이용하면 자동으로 테이블명이 복수형으로 선언된다는 특징이 있습니다. 
@@ -338,18 +339,200 @@ module.exports = router;
 ### View
 
 view/proposal.ejs
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Proposal</title>
+</head>
+
+<body>
+    <h1>Proposal</h1>
+
+    <form action="/proposal/register" method="POST" id="proposal">
+        <table>
+            <tr>
+                <td><input type="text" name="title" placeholder="title"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="description" placeholder="description"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="type" placeholder="type"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="value" placeholder="value"></td>
+            </tr>
+        </table>
+        <input type="submit" value="registerProposal">
+    </form>
+
+    <button><a href="/proposal/getProposals">getProposals</a></button>
+
+    <table>
+        <% for(let Proposal of Proposals) { %>
+        <tr>
+            <td><%= Proposal.id %></td>
+            <td><%= Proposal.title %></td>
+            <td><%= Proposal.description %></td>
+            <td><%= Proposal.type %></td>
+            <td><%= Proposal.value %></td>
+            <td><%= Proposal.vote %></td>
+            <td><button><a href="/proposal/vote/<%= Proposal.id %>">vote</a></button></td>
+            <td><button type="submit" formaction="/proposal/cancel/<%= Proposal.id %>?_method=DELETE"
+                    form="proposal">cancel</button></td>
+            <td><button><a href="/proposal/getProposal/<%= Proposal.id %>">getProposal</a></button></td>
+        </tr>
+        <% } %>
+    </table>
+
+
+</body>
+
+</html>
+```
 
 view/voteProposal.ejs
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>vote</h1>
+<hr>
+
+<form action="/proposal/vote/<%= id %>?_method=PUT" method="post">
+    <input type="text" name="vote" placeholder="vote">
+    <input type="submit" value="전송하기" >
+</form>
+
+</body>
+</html>
 
 view/getProposal.ejs
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>getProposal</h1>
+
+<table>
+    <tbody>
+        <tr>
+            <th scope="row">proposer</th>
+            <td><%= Proposal.proposer %></td>
+        </tr>
+        <tr>
+            <th scope="row">id</th>
+            <td><%= Proposal.id %></td>
+        </tr>
+        <tr>
+            <th scope="row">status</th>
+            <td><%= Proposal.status %></td>
+        </tr>
+        <tr>
+            <th scope="row">startBlockHeight</th>
+            <td><%= Proposal.startBlockHeight %></td>
+        </tr>
+        <tr>
+            <th scope="row">endBlockHeight</th>
+            <td><%= Proposal.endBlockHeight %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_agree_address</th>
+            <td><%= Proposal.voter.agree.address %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_agree_amount</th>
+            <td><%= Proposal.voter.agree.amount %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_disagree_address</th>
+            <td><%= Proposal.voter.disagree.address %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_disagree_amount</th>
+            <td><%= Proposal.voter.disagree.amount %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_noVote_address</th>
+            <td><%= Proposal.voter.noVote.address %></td>
+        </tr>
+        <tr>
+            <th scope="row">voter_noVote_amount</th>
+            <td><%= Proposal.voter.noVote.amount %></td>
+        </tr>
+        <tr>
+            <th scope="row">contents_description</th>
+            <td><%= Proposal.contents.description %></td>
+        </tr>
+        <tr>
+            <th scope="row">contents_type</th>
+            <td><%= Proposal.contents.type %></td>
+        </tr>
+        <tr>
+            <th scope="row">contents_value_address</th>
+            <td><%= Proposal.contents.value.address %></td>
+        </tr>
+    </tbody>    
+</table>
+
+</body>
+</html>
+```
 
 view/getProposals.ejs
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>getProposals</h1>
 
+<table>
+    <% for(let Proposal of Proposals) { %>
+        <tr>
+            <th scope="row">id</th>
+            <td><%= Proposal.id %></td>
+        </tr>
+        <tr>
+            <th scope="row">description</th>
+            <td><%= Proposal.description %></td>
+        </tr>
+        <tr>
+            <th scope="row">type</th>
+            <td><%= Proposal.type %></td>
+        </tr>
+        <tr>
+            <th scope="row">status</th>
+            <td><%= Proposal.status %></td>
+        </tr>
+        <tr>
+            <th scope="row">startBlockHeight</th>
+            <td><%= Proposal.startBlockHeight %></td>
+        </tr>
+        <tr>
+            <th scope="row">endBlockHeight</th>
+            <td><%= Proposal.endBlockHeight %></td>
+        </tr>
+    <% } %>
+</table>
 
-
-
-
-
+</body>
+</html>
+```
 
 ## JSON RPC
 JSON RPC 서버를 구축하여 API를 만들고 controller에서 호출하도록 만들겠습니다. view 를 통해 사용자에게서 입력 받은 값을 controller 에서 JSON RPC 서버로 보내기 위한 JSON 형식으로 만들어줍니다. icx_sendTransaction 과 icx_call 로 나뉘고, 그 안에서 registerPropsosal 등 해당되는 메소드를 실행하여 DB 와 통신하고 결과를 controller 로 리턴하여 view 에서 띄워주도록 할 것입니다.
