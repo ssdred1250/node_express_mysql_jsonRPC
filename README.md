@@ -225,15 +225,15 @@ prep, stake, delegatoin, proposal 각각에 대한 라우터를 등록하기 위
 routes 폴더 밑에 prep.js stake.js, delegation.js, proposal.js 파일을 생성합니다.
 그리고 app.js 에 이 router 들을 등록해야 합니다. 다음과 같이 app.js 에 추가해 주었습니다.
 ```
-$ var proposalRouter = require('./app_server/routes/proposal');
-$ var prepRouter = require('./app_server/routes/prep');
-$ var stakeRouter = require('./app_server/routes/stake');
-$ var delegationRouter = require('./app_server/routes/delegation');
+const proposalRouter = require('./app_server/routes/proposal');
+const prepRouter = require('./app_server/routes/prep');
+const stakeRouter = require('./app_server/routes/stake');
+const delegationRouter = require('./app_server/routes/delegation');
 
-$ app.use('/proposal', proposalRouter);
-$ app.use('/prep', prepRouter);
-$ app.use('/stake', stakeRouter);
-$ app.use('/delegation', delegationRouter);
+app.use('/proposal', proposalRouter);
+app.use('/prep', prepRouter);
+app.use('/stake', stakeRouter);
+app.use('/delegation', delegationRouter);
 ```
 
 먼저 routes/proposal.js를 살펴보겠습니다.
@@ -496,7 +496,7 @@ view/getProposals.ejs
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-</head>
+</head>s
 <body>
 <h1>getProposals</h1>
 

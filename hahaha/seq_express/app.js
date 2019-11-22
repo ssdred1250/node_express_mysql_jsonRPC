@@ -1,15 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var proposalRouter = require('./app_server/routes/proposal');
-var prepRouter = require('./app_server/routes/prep');
-var stakeRouter = require('./app_server/routes/stake');
-var delegationRouter = require('./app_server/routes/delegation');
+const proposalRouter = require('./app_server/routes/proposal');
+const prepRouter = require('./app_server/routes/prep');
+const stakeRouter = require('./app_server/routes/stake');
+const delegationRouter = require('./app_server/routes/delegation');
 
-var app = express();
+const app = express();
 
 const models = require("./app_server/models/index.js");
 
