@@ -2,7 +2,7 @@
 
 Node.js와 Express, MySQL, JSON RPC 를 통한 IISS API 통신을 위한 더미 서버 구축
 
-![process](./hahaha/img/process.png)
+![process](./img/process.png)
 
 ## 1. Express 프로젝트 생성
 
@@ -20,7 +20,7 @@ seq-express라는 이름의 프로젝트를 생성했고, view 엔진으로는 e
 ejs에서는 태그를 통하여 html문서를 작성하고, 
 <% %> 와 <%= %>를 이용하여 서버가 전달해준 값을 사용할 수 있습니다.
 
-![express-generator](./hahaha/img/express-generator.png)
+![express-generator](./img/express-generator.png)
 
 ## 2. MySQL 연동
 
@@ -40,7 +40,7 @@ $ npm install sequelize-cli
 $ sequelize init
 ```
 `seqeulize init`을 하면 다음과 같이 몇 개의 폴더와 파일이 새로 생성됩니다. 
-![sequelize_init](./hahaha/img/sequelize_init.png)
+![sequelize_init](./img/sequelize_init.png)
 
 
 /config/config.json\
@@ -116,11 +116,11 @@ $ seqeulize model:create --name Proposal --attributes "id:string, title:string, 
 $ seqeulize model:create --name Stake --attributes "EOA:string, value:string"
 ```
 이제 다음과 같이 models와 migrations 폴더에 파일들이 생상됩니다.\
-![model_create](./hahaha/img/model_create.png)
+![model_create](./img/model_create.png)
 \
 
 서버를 실행하면 정의된 모델에 의해 테이블이 생성됩니다.\
-![tables](hahaha/img/tables.png)
+![tables](img/tables.png)
 
 확인 결과 4개의 테이블이 잘 생성되었습니다. 자세히 살펴보면 테이블명이 모두 복수형인데  sequelize-cli를 이용하면 자동으로 테이블명이 복수형으로 선언된다는 특징이 있습니다. 
 또한 자동으로 id, createdAt updateAt 3개의 컬럼을 생성해줍니다.
